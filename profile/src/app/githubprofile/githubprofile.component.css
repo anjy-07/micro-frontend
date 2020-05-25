@@ -1,0 +1,32 @@
+.profile-card {
+    max-width: 400px;
+    height: 90vh;
+}
+
+.profile-header-image {
+    background-image: url('https://picsum.photos/seed/picsum/400/400');
+    background-size: cover;
+    height: 200px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.profile-card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content-container {
+    justify-content: center;
+}
+
+.profile-grid-tile {
+    display: flex;
+    flex-direction: row;
+}
