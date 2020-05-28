@@ -2,8 +2,8 @@
     <mat-card class="profile-card">
         <mat-card-header class="profile-card-header">
             <div mat-card-avatar class="profile-header-image"></div>
-            <mat-card-title>Wes Bos</mat-card-title>
-            <mat-card-subtitle>I create course on JavaScript</mat-card-subtitle>
+            <mat-card-title>{{ profile.name }}</mat-card-title>
+            <mat-card-subtitle>{{ profile.bio }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="profile-card-content">
             <mat-grid-list class="profile-content-container" cols="2" rowHeight="60px">
@@ -12,7 +12,7 @@
                         <mat-icon aria-hidden="false" aria-label="Person Add Icon" style="margin: auto; font-size: 26pt;">person_add</mat-icon>
                         <div style="display:flex; flex-direction:column; margin-left: 20px; align-items: center;">
                             <p class="mat-body" style="margin: 0px;">FOLLOWERS</p>
-                            <p class="mat-subheading-2" style="margin: 0px;">20K</p>
+                            <p class="mat-subheading-2" style="margin: 0px;">{{ profile.followers }}</p>
                         </div>
                     </div>
 
@@ -22,32 +22,32 @@
                         <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 26pt;">how_to_reg</mat-icon>
                         <div style="display:flex; flex-direction:column; margin-left: 20px; align-items: center;">
                             <p class="mat-body" style="margin: 0px;">FOLLOWING</p>
-                            <p class="mat-subheading-2" style="margin: 0px;">13</p>
+                            <p class="mat-subheading-2" style="margin: 0px;">{{ profile.following }}</p>
                         </div>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
                         <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">history</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">JOINED 10 YEARS AGO</p>
+                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">JOINED {{ profile.joined }} YEARS AGO</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
                         <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">code</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">258 REPOSITORIES</p>
+                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.repositories }} REPOSITORIES</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
                         <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">create</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">6 PINNED</p>
+                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.pinned }} PINNED</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
                         <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">star</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">117 STARRED</p>
+                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.starred }} STARRED</p>
                     </div>
                 </mat-grid-tile>
             </mat-grid-list>

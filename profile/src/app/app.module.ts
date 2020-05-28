@@ -9,6 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ProfileService } from './profile.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,24 +23,24 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
-  providers: [],
-  // bootstrap: [AppComponent], // uncomment to run on dev server
+  providers: [ProfileService],
+  bootstrap: [AppComponent], // uncomment to run on dev server
   // comment all below to run on dev server
-  bootstrap: [],
-  entryComponents: [
-    AppComponent,
-    GithubprofileComponent
-  ]
+  // bootstrap: [],
+  // entryComponents: [
+  //   AppComponent
+  // ]
 })
 export class AppModule {
   // comment all below to run on dev server ng serve
-  constructor(private injector: Injector) { }
+  // constructor(private injector: Injector) { }
 
-  ngDoBootstrap(): void {
-    const { injector } = this;
-    const profileElement = createCustomElement(GithubprofileComponent, {injector});
-    customElements.define('ng-profile', profileElement as any);
-  }
+  // ngDoBootstrap(): void {
+  //   const { injector } = this;
+  //   const profileElement = createCustomElement(AppComponent, {injector});
+  //   customElements.define('ng-profile', profileElement as any);
+  // }
 }
