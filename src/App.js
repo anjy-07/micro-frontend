@@ -32,7 +32,6 @@ class ReactElement extends HTMLElement {
   connectedCallback() {
     this._innerHTML = this.innerHTML;
     this.username = this.getAttribute("username");
-    console.log("username", this.username)
     this.mount();
   }
 
@@ -48,12 +47,9 @@ class ReactElement extends HTMLElement {
 
   mount() {
     const propTypes = Graphs.propTypes ? Graphs.propTypes : {};
-    console.log(this.attributes)
-    console.log(propTypes)
     const props = {
       ...this.getProps(this.attributes, propTypes),
     };
-    console.log(props)
     render(<Graphs {...props} />, this);
   }
 

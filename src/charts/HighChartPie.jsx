@@ -6,7 +6,6 @@ const HighChartPie = (props) => {
     let data = Object.keys(props.object).map((language) => {
         return {name: language, y: props.object[language]}
     })
-    console.log(data)
     const options = {
         chart: {
             plotBackgroundColor: null,

@@ -30,7 +30,6 @@ export default class Graphs extends React.Component {
   reposPerLanguage() {
     axios.get(`https://api.github.com/users/${this.state.username}/repos`)
     .then((response) => {
-      console.log(response.data)
       let languages = {}
       let starsPerRpo = {}
       response.data.map((repo) =>{ 
