@@ -31,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
   // comment all below to run on dev server
   // bootstrap: [],
   // entryComponents: [
-  //   AppComponent
+  //   AppComponent,
+  //   GithubprofileComponent
   // ]
 })
 export class AppModule {
@@ -40,7 +41,7 @@ export class AppModule {
 
   // ngDoBootstrap(): void {
   //   const { injector } = this;
-  //   const profileElement = createCustomElement(AppComponent, {injector});
+  //   const profileElement = createCustomElement(GithubprofileComponent, {injector});
   //   customElements.define('ng-profile', profileElement as any);
   // }
 }

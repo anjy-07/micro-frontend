@@ -5,7 +5,7 @@ export interface Profile {
     followers: string;
     following: string;
     repositories: string;
-    joined: string;
+    joined: number;
     starred: string;
     pinned: string;
 }

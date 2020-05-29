@@ -1,7 +1,8 @@
 <div>
     <mat-card class="profile-card">
         <mat-card-header class="profile-card-header">
-            <div mat-card-avatar class="profile-header-image"></div>
+
+            <div mat-card-avatar class="profile-header-image" [ngStyle]="{'background-image': 'url(' + profile.imageUrl +  ')'}"></div>
             <mat-card-title>{{ profile.name }}</mat-card-title>
             <mat-card-subtitle>{{ profile.bio }}</mat-card-subtitle>
         </mat-card-header>
