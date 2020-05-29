@@ -27,21 +27,21 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [ProfileService],
-  bootstrap: [AppComponent], // uncomment to run on dev server
+  // bootstrap: [AppComponent], // uncomment to run on dev server
   // comment all below to run on dev server
-  // bootstrap: [],
-  // entryComponents: [
-  //   AppComponent,
-  //   GithubprofileComponent
-  // ]
+  bootstrap: [],
+  entryComponents: [
+    AppComponent,
+    GithubprofileComponent
+  ]
 })
 export class AppModule {
   // comment all below to run on dev server ng serve
-  // constructor(private injector: Injector) { }
+  constructor(private injector: Injector) { }
 
-  // ngDoBootstrap(): void {
-  //   const { injector } = this;
-  //   const profileElement = createCustomElement(GithubprofileComponent, {injector});
-  //   customElements.define('ng-profile', profileElement as any);
-  // }
+  ngDoBootstrap(): void {
+    const { injector } = this;
+    const profileElement = createCustomElement(GithubprofileComponent, {injector});
+    customElements.define('ng-profile', profileElement as any);
+  }
 }
