@@ -26,3 +26,10 @@
 .username-input {
     font-size: 14pt;
 }
+
+.grid{
+    display: flex; 
+    width: 100%; 
+    margin-top: 10px; 
+    justify-content: center; 
+}
