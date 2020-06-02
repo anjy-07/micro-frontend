@@ -1,11 +1,22 @@
 import React from 'react'
 import HighCharts from 'highcharts';
 import HighChartsReact from 'highcharts-react-official';
+import { useEffect, useState} from 'react';
 
 const HighChartPie = (props) => {
-    let data = Object.keys(props.object).map((language) => {
-        return {name: language, y: props.object[language]}
-    })
+    const [data, setData] = useState([]);
+
+    useEffect(() =>{   
+        if(props.object) {
+            let data = Object.keys(props.object).map((language) => {
+                return {name: language, y: props.object[language]}
+            })
+            setData(data)
+        }   
+    }, [props.object])
+  
+    
+
     const options = {
         chart: {
             plotBackgroundColor: null,
@@ -18,7 +29,8 @@ const HighChartPie = (props) => {
             text: 'Commit per Language, 2020'
         },
         tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+            pointFormat: '<b>{series.name}</b>: {point.y:.1f}',
         },
         accessibility: {
             point: {
@@ -28,8 +40,8 @@ const HighChartPie = (props) => {
         credits: {
             enabled: false
         },
-        colors: ['#00876c', '#6aaa96', '#aecdc2', '#f1f1f1', '#f0b8b8',
-            '#e67f83', '#d43d51'],
+        colors: ['#00876c', '#6aaa96',  '#f0b8b8',
+            '#e67f83', '#d43d51',  '#aecdc2', '#f1f1f1'],
         plotOptions: {
             pie: {
                 allowPointSelect: true,
@@ -41,7 +53,7 @@ const HighChartPie = (props) => {
             }
         },
         series: [{
-            name: 'Brands',
+            name: 'Langauge',
             colorByPoint: true,
             data: data
         }]

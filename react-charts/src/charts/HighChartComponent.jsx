@@ -1,24 +1,24 @@
 import React from 'react'
 import HighCharts from 'highcharts';
 import HighChartsReact from 'highcharts-react-official';
+import { useEffect, useState} from 'react';
 
 
-const HighChartComponent = (props) => {
-    let startMonth= props.startMonth
-    console.log(startMonth)
+const HighChartComponent = (props) => { 
+    const [xAxis, setxAxis] = useState([]);
+    const [yAxis, setyAxis] = useState(Array(12).fill(0));
 
-    console.log(props.years)
-    let startYear= props.startYear
-    let months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-    let prevYearMonths =  months.slice([parseInt(startMonth)] , months.length-1).map((month) => `${month} ${parseInt(startYear)}`)
-    let newYearMonths =  months.slice(0, [parseInt(startMonth)]-1).map((month) => `${month} ${parseInt(startYear) + 1}`)
-    let xAxis = [...prevYearMonths, ...newYearMonths]
-    console.log(xAxis)
-
+    useEffect(() =>{   
+        if(props.object) {
+            setxAxis(Object.keys(props.object))
+            let y = Array(12).fill(0)
+            y = Object.keys(props.object).map((month) =>{
+                return props.object[month]
+            })
+            setyAxis(y)
+        }   
+    }, [props.object])
     
-
-
-    let years = props.years
    
     const options = {
         chart: {
@@ -54,7 +54,7 @@ const HighChartComponent = (props) => {
         },
         series: [ {
             name: 'Commits',
-            data: [ 29742, 29851, 32490, 30282, 38121, 40434]
+            data: yAxis
         }],
     
         responsive: {
@@ -72,6 +72,8 @@ const HighChartComponent = (props) => {
             }]
         }
     }
+
+
     
     return (
         <HighChartsReact
