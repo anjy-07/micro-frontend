@@ -12,4 +12,8 @@ export class ProfileService {
     return this.httpClient.get('https://api.github.com/users/' + userName);
   }
 
+  starredData(userName) {
+    return this.httpClient.get('https://api.github.com/users/' + userName + '/starred');
+  }
+
 }

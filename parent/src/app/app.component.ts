@@ -1,5 +1,4 @@
-import { Component, ViewChild, ElementRef, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +10,11 @@ export class AppComponent {
   user: string;
   inputValue = '';
 
-  constructor(@Inject(DOCUMENT) document) {
+  constructor() {
   }
 
   renderBoard() {
-    console.log("USERNAME :: ", this.inputValue);
+
     const ngProfile = document.createElement('ng-profile');
     ngProfile.setAttribute('username', this.inputValue);
     ngProfile.setAttribute('class', 'angular');
