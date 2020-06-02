@@ -37,9 +37,10 @@ export class GithubprofileComponent implements OnInit, AfterContentChecked {
       this.profile.following = data['following'];
       this.profile.repositories = data['public_repos'];
       this.profile.joined = this.dateDiff(new Date(data['created_at']));
-      this.profile.starred = '118';
       this.profile.pinned = '6';
     });
+
+    this.profileService.starredData(userName).subscribe((data: any[]) => this.profile.starred = data.length.toString());
   }
 
   dateDiff(dateOld) {
