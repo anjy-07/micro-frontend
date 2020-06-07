@@ -55,11 +55,11 @@ export default class Graphs extends React.Component {
       if(response.data) {
       let yearsObject={}
       let weeks  = response.data.data.user.contributionsCollection.contributionCalendar.weeks
-      weeks.map((day) => {
+      weeks.forEach((day) => {
         let month = day.firstDay.substring(5,7)
         let year = day.firstDay.substring(2,4)
         let count = 0;
-        day.contributionDays.map((weekDay) => {
+        day.contributionDays.forEach((weekDay) => {
            count += weekDay.contributionCount;
         })   
       let key = `${this.months[parseInt(month)-1]} ${year}`
@@ -75,7 +75,7 @@ export default class Graphs extends React.Component {
   }}).then((response) => {
     let languages={}
     let starsPerRpo={} 
-    response.data.map((repo) => {
+    response.data.forEach((repo) => {
       if(repo.language !== null){
         languages[repo.language] ?  ++languages[repo.language] : languages[repo.language] = 1 
       }
