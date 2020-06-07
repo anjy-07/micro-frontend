@@ -115,10 +115,10 @@ jobs:
       with:
         aws_access_key: ${{secrets.AWS_ACCESS_KEY_ID}}
         aws_secret_key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        application_name: "developer-portfolio"
-        environment_name: "DeveloperPortfolio-env"
+        application_name: "micro-github-dashboard"
+        environment_name: "MicroGithubDashboard-env"
         region: "ap-south-1"
-        version_label: "micro-frontend-github-dashboard-${{ steps.format-time.outputs.replaced }}"
+        version_label: "micro-github-dashboard-${{ steps.format-time.outputs.replaced }}"
         deployment_package: ./parent/deploy.zip
 
     - name: Deployed!
