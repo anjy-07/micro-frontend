@@ -118,7 +118,7 @@ jobs:
         application_name: "developer-portfolio"
         environment_name: "DeveloperPortfolio-env"
         region: "ap-south-1"
-        version_label: "angular-chat-${{ steps.format-time.outputs.replaced }}"
+        version_label: "micro-frontend-github-dashboard-${{ steps.format-time.outputs.replaced }}"
         deployment_package: ./parent/deploy.zip
 
     - name: Deployed!
