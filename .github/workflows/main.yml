@@ -10,36 +10,36 @@ on:
     branches: [ master ]
 
 jobs:
-  job1:
-    name: "Profile Job"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+#   job1:
+#     name: "Profile Job"
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [12.x]
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: run-npm-ci
-      working-directory: ./profile
-      run: npm ci
-    - name: run-npm-build
-      working-directory: ./profile
-      run: npm run build --if-present
-    - name: Deploy to S3 Profile
-      uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: ${{ secrets.AWS_REGION }}
-        SOURCE_DIR: "./profile/dist/profile"
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - name: run-npm-ci
+#       working-directory: ./profile
+#       run: npm ci
+#     - name: run-npm-build
+#       working-directory: ./profile
+#       run: npm run build --if-present
+#     - name: Deploy to S3 Profile
+#       uses: jakejarvis/s3-sync-action@master
+#       with:
+#         args: --acl public-read --delete
+#       env:
+#         AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
+#         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         AWS_REGION: ${{ secrets.AWS_REGION }}
+#         SOURCE_DIR: "./profile/dist/profile"
 
   job2:
     name: "Metrics Job"
@@ -66,7 +66,7 @@ jobs:
       with:
         args: --acl public-read --delete
       env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }}
+        AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME_REACT }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
