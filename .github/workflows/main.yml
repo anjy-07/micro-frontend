@@ -10,26 +10,26 @@ on:
     branches: [ master ]
 
 jobs:
-  job1:
-    name: "Profile Job"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+#   job1:
+#     name: "Profile Job"
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [12.x]
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: run-npm-ci
-      working-directory: ./profile
-      run: npm ci
-    - name: run-npm-build
-      working-directory: ./profile
-      run: npm run build --if-present
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - name: run-npm-ci
+#       working-directory: ./profile
+#       run: npm ci
+#     - name: run-npm-build
+#       working-directory: ./profile
+#       run: npm run build --if-present
   job2:
     name: "Metrics Job"
     runs-on: ubuntu-latest
@@ -51,26 +51,26 @@ jobs:
       working-directory: ./react-charts
       run: npm run build --if-present
 
-  job3:
-    name: "Parent App Job"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
+#   job3:
+#     name: "Parent App Job"
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [10.x, 12.x, 14.x]
 
-    steps:
-    - uses: actions/checkout@v2
+#     steps:
+#     - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: run-npm-ci
-      working-directory: ./parent
-      run: npm ci
-    - name: run-npm-build
-      working-directory: ./parent
-      run: npm run build --if-present
+#     - name: Use Node.js ${{ matrix.node-version }}
+#       uses: actions/setup-node@v1
+#       with:
+#         node-version: ${{ matrix.node-version }}
+#     - name: run-npm-ci
+#       working-directory: ./parent
+#       run: npm ci
+#     - name: run-npm-build
+#       working-directory: ./parent
+#       run: npm run build --if-present
 
 
 
