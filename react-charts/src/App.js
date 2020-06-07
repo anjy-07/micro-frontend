@@ -29,6 +29,7 @@ class ReactElement extends HTMLElement {
   connectedCallback() {
     this._innerHTML = this.innerHTML;
     this.username = this.getAttribute("username");
+    /* eslint-disable react/forbid-foreign-prop-types */
     const propTypes = Graphs.propTypes ? Graphs.propTypes : {};
     const props = {
       ...this.getProps(this.attributes, propTypes),
@@ -48,6 +49,7 @@ class ReactElement extends HTMLElement {
   }
 
   mount() {
+    /* eslint-disable react/forbid-foreign-prop-types */
     const propTypes = Graphs.propTypes ? Graphs.propTypes : {};
     const props = {
       ...this.getProps(this.attributes, propTypes),
@@ -71,10 +73,10 @@ class ReactElement extends HTMLElement {
 
   convert(propTypes, attrName, attrValue) {
     const propName = Object.keys(propTypes)
-      .find(key => key.toLowerCase() == attrName);
+      .find(key => key.toLowerCase() === attrName);
     let value = attrValue;
     if (attrValue === 'true' || attrValue === 'false') 
-      value = attrValue == 'true';      
+      value = attrValue === 'true';      
     else if (!isNaN(attrValue) && attrValue !== '') 
       value = +attrValue;      
     else if (/^{.*}/.exec(attrValue)) 
