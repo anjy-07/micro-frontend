@@ -13,7 +13,7 @@ export default class Graphs extends React.Component {
     name: PropTypes.string,
   }
   state = {
-    username: 'wesbos',
+    username: 'anjy-07',
     languagesPerRepo: {},
     starsPerRpo: {}
   }
