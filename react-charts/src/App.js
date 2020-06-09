@@ -2,18 +2,21 @@
 // import logo from './logo.svg';
 // import './App.css';
 // import Graphs from './Graphs'
-// import { Avatar} from '@material-ui/core';
 
 // function App() {
 //   return (
-//     <div className="App"> 
-//         <Avatar  alt="logo" src={logo} style={{height:70, width:70}}/>
+//     <div className="App">  
 //         <Graphs username="wesbos"></Graphs>
 //     </div>
 //   );
 // }
 
 // export default App;
+
+
+
+
+
 import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import Graphs from './Graphs'
@@ -29,12 +32,6 @@ class ReactElement extends HTMLElement {
   connectedCallback() {
     this._innerHTML = this.innerHTML;
     this.username = this.getAttribute("username");
-    /* eslint-disable react/forbid-foreign-prop-types */
-    const propTypes = Graphs.propTypes ? Graphs.propTypes : {};
-    const props = {
-      ...this.getProps(this.attributes, propTypes),
-    };
-    render(<Graphs {...props} />, this);
     this.mount();
   }
 
@@ -49,7 +46,6 @@ class ReactElement extends HTMLElement {
   }
 
   mount() {
-    /* eslint-disable react/forbid-foreign-prop-types */
     const propTypes = Graphs.propTypes ? Graphs.propTypes : {};
     const props = {
       ...this.getProps(this.attributes, propTypes),
@@ -73,10 +69,10 @@ class ReactElement extends HTMLElement {
 
   convert(propTypes, attrName, attrValue) {
     const propName = Object.keys(propTypes)
-      .find(key => key.toLowerCase() === attrName);
+      .find(key => key.toLowerCase() == attrName);
     let value = attrValue;
     if (attrValue === 'true' || attrValue === 'false') 
-      value = attrValue === 'true';      
+      value = attrValue == 'true';      
     else if (!isNaN(attrValue) && attrValue !== '') 
       value = +attrValue;      
     else if (/^{.*}/.exec(attrValue)) 
@@ -89,8 +85,3 @@ class ReactElement extends HTMLElement {
 }
 
 customElements.define('react-el', ReactElement);
-
-
-
-
-

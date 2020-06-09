@@ -25,12 +25,15 @@ jobs:
         node-version: ${{ matrix.node-version }}
     
     - name: run-npm-ci
+      working-directory: ./charts
       run: npm ci
     
     - name: run-npm-build
+      working-directory: ./charts
       run: npm run build --if-present
       
     - name: Generate deployment package
+      working-directory: ./charts
       run: zip -r deploy.zip * -x "**node_modules**"
 
     - name: Get timestamp
@@ -55,7 +58,7 @@ jobs:
         environment_name: "ReactDemoNew-env"
         region: "ap-south-1"
         version_label: "react-demo-new-${{ steps.format-time.outputs.replaced }}"
-        deployment_package: deploy.zip
+        deployment_package: ./react/deploy.zip
 
     - name: Deployed!
       run: echo App deployed to ELB
