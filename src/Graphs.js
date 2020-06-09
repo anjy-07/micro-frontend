@@ -20,9 +20,7 @@ export default class Graphs extends React.Component {
   componentWillMount(){
     this.setState({username: this.props.username})
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return  nextProps.username !== this.props.username 
-  // }
+  
   componentDidMount() {
     this.reposPerLanguage()
   }
