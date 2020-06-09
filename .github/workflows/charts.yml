@@ -23,12 +23,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: run-npm-ci
-      run: npm ci
-    
-    - name: run-npm-build
-      run: npm run build --if-present
+
+    - name: rename main js
+      run: mv build/static/js/main.*.*.js build/stati/js/main.js
+      
+    - name: rename runtime-main js
+      run: mv build/static/js/runtime-main.*.js build/stati/js/runtime-main.js
+      
+    - name: rename chunk js
+      run: mv build/static/js/*.chunk.js build/stati/js/app.js
       
     - name: Generate deployment package
       run: zip -r deploy.zip * -x "**node_modules**"
