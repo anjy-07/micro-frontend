@@ -1,5 +1,5 @@
 {
-  "name": "micro-demo",
+  "name": "react-profile",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,10 +13,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
