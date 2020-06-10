@@ -25,13 +25,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Rename main js
-      run: mv build/static/js/main.*.*.js build/stati/js/main.js
+      run: mv build/static/js/main.*.*.js build/static/js/main.js
       
     - name: Rename runtime-main js
-      run: mv build/static/js/runtime-main.*.js build/stati/js/runtime-main.js
+      run: mv build/static/js/runtime-main.*.js build/static/js/runtime-main.js
       
     - name: Rename chunk main js
-      run: mv build/static/js/*.chunk.js build/stati/js/app.js
+      run: mv build/static/js/*.chunk.js build/static/js/app.js
       
     - name: Generate deployment package
       run: zip -r deploy.zip * -x "**node_modules**"
