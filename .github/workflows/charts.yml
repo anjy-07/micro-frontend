@@ -30,7 +30,7 @@ jobs:
     - name: Rename runtime-main js
       run: mv build/static/js/runtime-main.*.js build/stati/js/runtime-main.js
       
-    - name: Rename chunk js
+    - name: Rename chunk main js
       run: mv build/static/js/*.chunk.js build/stati/js/app.js
       
     - name: Generate deployment package
