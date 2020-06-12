@@ -5,7 +5,6 @@ import { useEffect, useState} from 'react';
 
 const HighChartPie = (props) => {
     const [data, setData] = useState([]);
-
     useEffect(() =>{   
         if(props.object) {
             let data = Object.keys(props.object).map((language) => {
@@ -14,9 +13,8 @@ const HighChartPie = (props) => {
             setData(data)
         }   
     }, [props.object])
-  
-    
 
+    //fetching the data from parent
     const options = {
         chart: {
             plotBackgroundColor: null,
