@@ -14,6 +14,7 @@ export class GithubprofileComponent implements OnInit, AfterContentChecked {
   @Output() userEvent: EventEmitter<string> = new EventEmitter();
   once = false;
   profile: Profile = {} as any;
+  breakpoint: number;
 
   constructor(private profileService: ProfileService) {
 
@@ -26,6 +27,11 @@ export class GithubprofileComponent implements OnInit, AfterContentChecked {
   }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 100) ? 1 : 2;
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 100) ? 1 : 2;
   }
 
   renderProfileData(userName) {

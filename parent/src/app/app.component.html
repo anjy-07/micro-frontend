@@ -5,9 +5,9 @@
     </mat-form-field>
 </div>
 
-<mat-grid-list class="grid" cols="9" rowHeight="100%">
-    <mat-grid-tile class="tile" rowspan="1" colspan="2" id='angular-element'>
+<mat-grid-list class="grid" [cols]="breakpoint" (window:resize)="onResize($event)">
+    <mat-grid-tile class="remove-padding" rowspan="1" [colspan]="angularSpan" id='angular-element'>
     </mat-grid-tile>
-    <mat-grid-tile  class="tile" rowspan="1" colspan="7" id='react-element'>
+    <mat-grid-tile class="remove-padding"  rowspan="1" [colspan]="reactSpan" id='react-element'>
     </mat-grid-tile>
 </mat-grid-list> 

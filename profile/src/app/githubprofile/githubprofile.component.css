@@ -1,13 +1,12 @@
 .profile-card {
-    max-width: 400px;
-    height: 100vh;
+    max-width: 100%;
 }
 
 .profile-header-image {
     background-image: url('https://picsum.photos/seed/picsum/400/400');
     background-size: cover;
-    height: 200px;
-    width: 200px;
+    height: 15vw;
+    width: 15vw;
     margin-bottom: 10px;
 }
 

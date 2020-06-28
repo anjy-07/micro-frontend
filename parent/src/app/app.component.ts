@@ -1,16 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'parent';
   user: string;
   inputValue = '';
+  breakpoint: number;
+  angularSpan: number;
+  reactSpan: number;
 
   constructor() {
+  }
+
+  ngOnInit(): void {
+    console.log(window.innerWidth);
+    this.breakpoint = (window.innerWidth <= 800) ? 1 : 9;
+    this.angularSpan = (window.innerWidth <= 800) ? 1 : 2;
+    this.reactSpan = (window.innerWidth <= 800) ? 1 : 7;
+  }
+
+  onResize(event) {
+    console.log(event.target.innerWidth);
+    this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 9;
+    this.angularSpan = (window.innerWidth <= 800) ? 1 : 2;
+    this.reactSpan = (window.innerWidth <= 800) ? 1 : 7;
   }
 
   renderBoard() {

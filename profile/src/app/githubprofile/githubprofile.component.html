@@ -1,5 +1,5 @@
 <div>
-    <mat-card class="profile-card">
+    <mat-card class="profile-card"  style="box-shadow: none;">
         <mat-card-header class="profile-card-header">
 
             <div mat-card-avatar class="profile-header-image" [ngStyle]="{'background-image': 'url(' + profile.imageUrl +  ')'}"></div>
@@ -7,48 +7,50 @@
             <mat-card-subtitle>{{ profile.bio }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="profile-card-content">
-            <mat-grid-list class="profile-content-container" cols="2" rowHeight="60px">
+            <mat-grid-list class="profile-content-container" [cols]="breakpoint" rowHeight="60px" (window:resize)="onResize($event)">
                 <mat-grid-tile rowspan="1" colspan="1">
                     <div class="profile-grid-tile">
-                        <mat-icon aria-hidden="false" aria-label="Person Add Icon" style="margin: auto; font-size: 26pt;">person_add</mat-icon>
+                        <mat-icon aria-hidden="false" aria-label="Person Add Icon" style="margin: auto;">person_add</mat-icon>
                         <div style="display:flex; flex-direction:column; margin-left: 20px; align-items: center;">
-                            <p class="mat-body" style="margin: 0px;">FOLLOWERS</p>
-                            <p class="mat-subheading-2" style="margin: 0px;">{{ profile.followers }}</p>
+                            <p mat-body style="margin: 0px;">FOLLOWERS</p>
+                            <p mat-subheading-2 style="margin: 0px;">{{ profile.followers }}</p>
                         </div>
                     </div>
 
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="1">
                     <div style="display:flex; flex-direction:row;">
-                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 26pt;">how_to_reg</mat-icon>
+                        <mat-icon mat-body aria-hidden="false" aria-label="Register Icon" style="margin: auto;">how_to_reg</mat-icon>
                         <div style="display:flex; flex-direction:column; margin-left: 20px; align-items: center;">
-                            <p class="mat-body" style="margin: 0px;">FOLLOWING</p>
-                            <p class="mat-subheading-2" style="margin: 0px;">{{ profile.following }}</p>
+                            <p mat-body style="margin: 0px;">FOLLOWING</p>
+                            <p mat-subheading-2 style="margin: 0px;">{{ profile.following }}</p>
                         </div>
                     </div>
                 </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list  class="profile-content-container" cols="2" rowHeight="60px"> 
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
-                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">history</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">JOINED {{ profile.joined }} YEARS AGO</p>
+                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto;">history</mat-icon>
+                        <p mat-body style="margin: 0px; margin-left: 10px; margin-top: 2px">JOINED {{ profile.joined }} YEARS AGO</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
-                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">code</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.repositories }} REPOSITORIES</p>
+                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto;">code</mat-icon>
+                        <p mat-body style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.repositories }} REPOSITORIES</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
-                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">create</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.pinned }} PINNED</p>
+                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto;">create</mat-icon>
+                        <p mat-body style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.pinned }} PINNED</p>
                     </div>
                 </mat-grid-tile>
                 <mat-grid-tile rowspan="1" colspan="2">
                     <div style="display:flex; flex-direction:row;">
-                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto; font-size: 20pt;">star</mat-icon>
-                        <p class="mat-body" style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.starred }} STARRED</p>
+                        <mat-icon aria-hidden="false" aria-label="Register Icon" style="margin: auto;">star</mat-icon>
+                        <p mat-body style="margin: 0px; margin-left: 10px; margin-top: 2px">{{ profile.starred }} STARRED</p>
                     </div>
                 </mat-grid-tile>
             </mat-grid-list>
